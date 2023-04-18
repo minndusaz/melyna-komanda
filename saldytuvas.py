@@ -14,6 +14,14 @@ def prideti_produkta(saldytuvas, pavadinimas, kiekis):
         saldytuvas[pavadinimas] = kiekis
     return saldytuvas
 
+def issimti_produkta(saldytuvas, pavadinimas, kiekis):
+    if pavadinimas in saldytuvas:
+        saldytuvas[pavadinimas] -= kiekis
+    else:
+        saldytuvas[pavadinimas] = kiekis
+    return saldytuvas
+
+
 def ivesti_produkta():
     pavadinimas = input("Įveskite produktą: ")
     kiekis = float(input("Įveskite produkto kiekį: "))
@@ -40,8 +48,8 @@ while True:
         saldytuvas = prideti_produkta(saldytuvas, pavadinimas, kiekis)
         print(saldytuvas)
     if user_input == 3:
-        tuscia()
-        print(saldytuvas)
+        pavadinimas, kiekis = ivesti_produkta()
+        saldytuvas = issimti_produkta(saldytuvas, pavadinimas, kiekis)
     if user_input == 9:
         clear()
         break

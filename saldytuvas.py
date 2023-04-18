@@ -30,6 +30,12 @@ def prideti(saldytuvas, pavadinimas, kiekis):
     saldytuvas[pavadinimas] = kiekis
     return saldytuvas
 
+def gauti_produktus(saldytuvas):
+    produktu_eilute = ""
+    for produktas, kiekis in saldytuvas.items():
+        produktu_eilute += produktas + ":" + str(kiekis) + " "
+    return produktu_eilute
+
 clear()
 while True:
     print("\nPasirinkite veiksmą: \n")
@@ -37,13 +43,13 @@ while True:
     user_input = int(input("Įrašykite savo pasirinkimą: "))
     if user_input == 1:
         clear()
-        print("Šaldytuve šiuo metu yra: ", saldytuvas)
+        print("Šaldytuve šiuo metu yra: ", gauti_produktus(saldytuvas))
     if user_input == 2:
         clear()
         print(saldytuvas)
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = prideti_produkta(saldytuvas, pavadinimas, kiekis)
-        tuscias(saldytuvas, 0)
+        pasalinti_produkta(saldytuvas, 0)
         clear()
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
     if user_input == 3:
@@ -51,13 +57,15 @@ while True:
         print(saldytuvas)
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = pasalinti_produkta(saldytuvas, pavadinimas, kiekis)
-        tuscias(saldytuvas, 0)
+        pasalinti_produkta(saldytuvas, 0)
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
     if user_input == 4:
         clear()
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
         turis = sum(saldytuvas.values())
         print(f"Viso šaldytuve esančių produktų svoris: ",turis, "\n")
+    if user_input == 5:
+        pass
     if user_input == 9:
         clear()
         break

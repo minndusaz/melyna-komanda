@@ -36,10 +36,19 @@ def gauti_produktus(saldytuvas):
         produktu_eilute += produktas + ":" + str(kiekis) + " "
     return produktu_eilute
 
+def ar_uztenka(saldytuvas, pavadinimas, kiekis):
+    ivesti_produkta()
+
+
 clear()
 while True:
     print("\nPasirinkite veiksmą: \n")
-    print("1 - peržiūrėti šaldytuvą", "\n2 - pridėti produktą", "\n3 - išimti produktą", "\n4 - suskaičiuoti turinio svorį", "\n9 - išeiti" )
+    print("1 - peržiūrėti šaldytuvą", 
+        "\n2 - pridėti produktą", 
+        "\n3 - išimti produktą", 
+        "\n4 - suskaičiuoti turinio svorį", 
+        "\n5 - Patikrinti ar užtenka ingredientų receptui"
+        "\n9 - išeiti" )
     user_input = int(input("Įrašykite savo pasirinkimą: "))
     if user_input == 1:
         clear()

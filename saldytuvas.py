@@ -15,11 +15,11 @@ def prideti_produkta(pavadinimas, kiekis):
         saldytuvas[pavadinimas] = kiekis
 
 def ivesti_produkta():
-    pavadinimas1 = input("Įveskite produktą: ")
-    kiekis = float(input("Įveskite produkto kiekį: "))
 
+    pavadinimas = input("Įveskite produktą: ")
+    kiekis = float(input("Įveskite produkto kiekį: "))
+clear()
 while True:
-    clear()
     print("Sveiki, pasirinkite ką norite padaryti?")
     print("1 - peržiūrėti šaldytuvą", "2 - pridėti produktą", "3 - išimti produktą", "4 - suskaičiuoti turinio svorį", "9 - išeiti" )
     user_input = int(input("Irasykite savo pasirinkima: "))
@@ -37,5 +37,3 @@ while True:
     if user_input == 9:
         clear()
         break
-    # if user_input != 1 or 2 or 3 or 4:
-    #     break

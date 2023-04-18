@@ -1,6 +1,6 @@
 import os
 
-saldytuvas = {"mesa":1}
+saldytuvas = {"mesa": 1, "zuvis": 0.0, "sviestas": 0.0, "kebabai": 2}
 def clear():
     if os.name == 'nt':
         os.system('cls')
@@ -23,6 +23,11 @@ def prideti(saldytuvas, pavadinimas, kiekis):
     saldytuvas[pavadinimas] = kiekis
     return saldytuvas
 
+# def tuscia(saldytuvas, kiekis):
+#     poros = list(saldytuvas.items())
+#     for raktas in poros:
+#         if 
+
 clear()
 while True:
     print("Sveiki, pasirinkite ką norite padaryti?")
@@ -33,8 +38,10 @@ while True:
     if user_input == 2:
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = prideti_produkta(saldytuvas, pavadinimas, kiekis)
+        print(saldytuvas)
     if user_input == 3:
-        clear()
+        tuscia()
+        print(saldytuvas)
     if user_input == 9:
         clear()
         break

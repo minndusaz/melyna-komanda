@@ -65,3 +65,4 @@ while True:
     if user_input == 9:
         clear()
         break
+# istrinti

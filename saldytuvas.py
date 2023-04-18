@@ -1,6 +1,6 @@
 import os
 
-saldytuvas = {"mesa": 1, "zuvis": 0.0, "sviestas": 0.0, "kebabai": 2}
+saldytuvas = {"mesa": 1.0, "zuvis": 0.0, "sviestas": 0.0, "kebabai": 2.0}
 def clear():
     if os.name == 'nt':
         os.system('cls')
@@ -41,7 +41,6 @@ while True:
     user_input = int(input("Įrašykite savo pasirinkimą: "))
     if user_input == 1:
         clear()
-        tuscias(saldytuvas, 0)
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
     if user_input == 2:
         clear()

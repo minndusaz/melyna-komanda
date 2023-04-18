@@ -20,8 +20,8 @@ def ivesti_produkta():
 
 while True:
     clear()
-    print("labas pasirinkite ka norite padaryti?")
-    print("1 - perziureti saldytuva", "2 - prideti produka", "3 - issimti produkta", "4 - suskaiciuoti turinio svori", "9 - iseiti" )
+    print("Sveiki, pasirinkite ką norite padaryti?")
+    print("1 - peržiūrėti šaldytuvą", "2 - pridėti produktą", "3 - išimti produktą", "4 - suskaičiuoti turinio svorį", "9 - išeiti" )
     user_input = int(input("Irasykite savo pasirinkima: "))
     if user_input == 1:
         # clear()

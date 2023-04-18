@@ -15,9 +15,9 @@ def prideti_produkta(pavadinimas, kiekis):
         saldytuvas[pavadinimas] = kiekis
 
 def ivesti_produkta():
-
     pavadinimas = input("Įveskite produktą: ")
     kiekis = float(input("Įveskite produkto kiekį: "))
+
 clear()
 while True:
     print("Sveiki, pasirinkite ką norite padaryti?")

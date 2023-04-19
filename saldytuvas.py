@@ -1,6 +1,7 @@
 import os
 
 saldytuvas = {"mesa": 1.0, "zuvis": 0.0, "sviestas": 0.0, "kebabai": 2.0}
+receptas = {}
 
 def clear():
     if os.name == 'nt':
@@ -44,9 +45,9 @@ def gauti_produktus(saldytuvas):
 def ar_uztenka(saldytuvas, pavadinimas, kiekis):
     ivesti_produkta()
 
-def iveskite_recepta ():
-    kokio_reikia_produktas = input("Iveskite maisto produktus: ")
-    kiek_reikia_kiekis = input("Iveskite kiekius: ")
+def iveskite_recepta():
+    kokio_reikia_produktas = input("Įveskite maisto produktus: ")
+    kiek_reikia_kiekis = input("Įveskite kiekius: ")
 
     prod = []
     prod.append(kokio_reikia_produktas)
@@ -58,14 +59,19 @@ def iveskite_recepta ():
 
     return receptas
 
+def patikrinti_saldytuva(receptas):
+    for ingredientas, kiekis in receptas.items():
+        if ingredientas not in saldytuvas or saldytuvas[ingredientas] < kiekis:
+            return print(f'Jums Trūksta, {ingredientas}')
+    return print("Jums užtenkta visko pagaminti produktą")
+
 def ar_uzteks_receptui (saldytuvas):
     for kokio_reikia_produktas, kiek_reikes_kiekis in saldytuvas:
         if kokio_reikia_produktas in saldytuvas.key() and "/n":
             if kiek_reikes_kiekis in saldytuvas.value():
                 saldytuvas.key() - kokio_reikia_produktas #del
                 saldytuvas.value() - kiek_reikes_kiekis #del
-        else: print("Neturite produktu arba neuztenka ju kiekio ")
-
+        else: print("Neturite produktų arba neužtenka jų kiekio ")
     return saldytuvas
 
 clear()
@@ -101,7 +107,8 @@ while True:
         turis = sum(saldytuvas.values())
         print(f"Viso šaldytuve esančių produktų svoris: ",turis, "\n")
     if user_input == 5:
-        print(iveskite_recepta())
+        iveskite_recepta()
+        print(patikrinti_saldytuva(receptas))
     if user_input == 6:
         print(ar_uzteks_receptui(saldytuvas))
     if user_input == 9:

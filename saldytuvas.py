@@ -39,6 +39,13 @@ def gauti_produktus(saldytuvas):
 def ar_uztenka(saldytuvas, pavadinimas, kiekis):
     ivesti_produkta()
 
+def tuscias(pavadinimas, kiekis):
+    poros = list(pavadinimas.items())
+    for raktas, reiksme_zodyje in poros:
+        if reiksme_zodyje == kiekis:
+            del pavadinimas[raktas]
+    return pavadinimas
+saldytuvas = tuscias(saldytuvas, 0)
 
 clear()
 while True:
@@ -48,7 +55,7 @@ while True:
         "\n3 - išimti produktą", 
         "\n4 - suskaičiuoti turinio svorį", 
         "\n5 - Patikrinti ar užtenka ingredientų receptui"
-        "\n9 - išeiti" )
+        "\n9 - išeiti")
     user_input = int(input("Įrašykite savo pasirinkimą: "))
     if user_input == 1:
         clear()
@@ -58,7 +65,7 @@ while True:
         print(saldytuvas)
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = prideti_produkta(saldytuvas, pavadinimas, kiekis)
-        pasalinti_produkta(saldytuvas, 0)
+        tuscias(saldytuvas, 0)
         clear()
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
     if user_input == 3:
@@ -66,7 +73,7 @@ while True:
         print(saldytuvas)
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = pasalinti_produkta(saldytuvas, pavadinimas, kiekis)
-        pasalinti_produkta(saldytuvas, 0)
+        tuscias(saldytuvas, 0)
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
     if user_input == 4:
         clear()

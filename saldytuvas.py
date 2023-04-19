@@ -43,9 +43,16 @@ def gauti_produktus(saldytuvas):
 def ar_uztenka(saldytuvas, pavadinimas, kiekis):
     ivesti_produkta()
 
+
 clear()
 while True:
     print("\nPasirinkite veiksmą: \n")
+    print("1 - peržiūrėti šaldytuvą", 
+        "\n2 - pridėti produktą", 
+        "\n3 - išimti produktą", 
+        "\n4 - suskaičiuoti turinio svorį", 
+        "\n5 - Patikrinti ar užtenka ingredientų receptui"
+        "\n9 - išeiti" )
     print("1 - peržiūrėti šaldytuvą", 
         "\n2 - pridėti produktą", 
         "\n3 - išimti produktą", 

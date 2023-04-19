@@ -58,7 +58,7 @@ def iveskite_recepta ():
 
     return receptas
 
-def ar_uzteks_recptui (saldytuvas):
+def ar_uzteks_receptui (saldytuvas):
     for kokio_reikia_produktas, kiek_reikes_kiekis in saldytuvas:
         if kokio_reikia_produktas in saldytuvas.key() and "/n":
             if kiek_reikes_kiekis in saldytuvas.value():
@@ -101,7 +101,9 @@ while True:
         turis = sum(saldytuvas.values())
         print(f"Viso šaldytuve esančių produktų svoris: ",turis, "\n")
     if user_input == 5:
-        pass
+        print(iveskite_recepta())
+    if user_input == 6:
+        print(ar_uzteks_receptui(saldytuvas))
     if user_input == 9:
         clear()
         break

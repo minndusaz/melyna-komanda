@@ -42,9 +42,6 @@ def gauti_produktus(saldytuvas):
         produktu_eilute += produktas + ":" + str(kiekis) + " "
     return produktu_eilute
 
-def ar_uztenka(saldytuvas, pavadinimas, kiekis):
-    ivesti_produkta()
-
 def iveskite_recepta():
     kokio_reikia_produktas = input("Įveskite maisto produktus: ")
     kiek_reikia_kiekis = input("Įveskite kiekius: ")
@@ -60,57 +57,63 @@ def iveskite_recepta():
     return receptas
 
 def patikrinti_saldytuva(receptas):
-    for ingredientas, kiekis in receptas.items():
-        if ingredientas not in saldytuvas or saldytuvas[ingredientas] < kiekis:
-            return print(f'Jums Trūksta, {ingredientas}')
-    return print("Jums užtenkta visko pagaminti produktą")
-
-def ar_uzteks_receptui (saldytuvas):
-    for kokio_reikia_produktas, kiek_reikes_kiekis in saldytuvas:
-        if kokio_reikia_produktas in saldytuvas.key() and "/n":
-            if kiek_reikes_kiekis in saldytuvas.value():
-                saldytuvas.key() - kokio_reikia_produktas #del
-                saldytuvas.value() - kiek_reikes_kiekis #del
-        else: print("Neturite produktų arba neužtenka jų kiekio ")
-    return saldytuvas
+    receptas = iveskite_recepta()
+    for pavadinimas, kiekis in receptas.items():
+        if kiekis not in saldytuvas or saldytuvas(kiekis) < kiekis:
+            print(f'Jums Trūksta, {pavadinimas}')
+        else:
+            print("Jums užtenkta visko pagaminti produktą")
 
 clear()
 while True:
-    print("\nPasirinkite veiksmą: \n")
-    print("1 - peržiūrėti šaldytuvą", 
-        "\n2 - pridėti produktą", 
-        "\n3 - išimti produktą", 
-        "\n4 - suskaičiuoti turinio svorį", 
+    print('Jūsų šaldytuvas')
+    print("---------------------\nPasirinkite veiksmą: \n---------------------")
+    print("1 - Peržiūrėti šaldytuvą", 
+        "\n2 - Pridėti produktą", 
+        "\n3 - Išimti produktą", 
+        "\n4 - Suskaičiuoti turinio svorį", 
         "\n5 - Patikrinti ar užtenka ingredientų receptui"
-        "\n9 - išeiti" )
+        "\n9 - Išeiti")
+    
     user_input = int(input("Įrašykite savo pasirinkimą: "))
+    
     if user_input == 1:
         clear()
-        print(saldytuvas)
+        print('Produktai esantys šaldytuve', saldytuvas)
+        print('---------------------')
+    
     if user_input == 2:
         clear()
-        print(saldytuvas)
+        print('Produktai esantys šaldytuve', saldytuvas)
+        print('---------------------')
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = prideti_produkta(saldytuvas, pavadinimas, kiekis)
+        tuscias(saldytuvas, 0)
         clear()
         print("Šaldytuve šiuo metu yra: ", saldytuvas)
+        print('---------------------')
+    
     if user_input == 3:
         clear()
-        print(saldytuvas)
+        print('Produktai esantys šaldytuve', saldytuvas)
+        print('---------------------')
         pavadinimas, kiekis = ivesti_produkta()
         saldytuvas = pasalinti_produkta(saldytuvas, pavadinimas, kiekis)
         tuscias(saldytuvas, 0)
-        print("Šaldytuve šiuo metu yra: ", saldytuvas)
+        print('Produktai esantys šaldytuve', saldytuvas)
+    
     if user_input == 4:
         clear()
-        print("Šaldytuve šiuo metu yra: ", saldytuvas)
+        print('Produktai esantys šaldytuve', saldytuvas)
+        print('---------------------')
         turis = sum(saldytuvas.values())
         print(f"Viso šaldytuve esančių produktų svoris: ",turis, "\n")
+    
     if user_input == 5:
-        iveskite_recepta()
-        print(patikrinti_saldytuva(receptas))
-    if user_input == 6:
-        print(ar_uzteks_receptui(saldytuvas))
+        clear()
+        print('Produktai esantys šaldytuve', saldytuvas)
+        patikrinti_saldytuva(receptas)
+    
     if user_input == 9:
         clear()
         break
